@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 import Home from './components/Home';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import Dashboard from './components/Dashboard';
+import Imgupload from './components/Imgupload';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,12 +12,16 @@ export default class App extends Component {
     this.state = {
     };
   }
+componentDidMount(){
 
+}
   render() {
     return (
       //<SignIn/>
       //<SignUp/>
-      <Home/>
+      //<Home/>
+      //<Dashboard/>
+      <Imgupload/>
     );
   }
 }
