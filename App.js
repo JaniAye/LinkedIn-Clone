@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-
+import Home from './components/Home';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 
@@ -13,8 +13,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <SignIn/>
+      //<SignIn/>
       //<SignUp/>
+      <Home/>
     );
   }
 }
