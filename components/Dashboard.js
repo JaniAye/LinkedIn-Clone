@@ -34,7 +34,7 @@ export default class Dashboard extends Component {
   render() {
     return (
       <View>
-        <Text> Dashboard </Text>
+      
         <FlatList
                 data={this.state.data}
                 renderItem={({ item }) => (

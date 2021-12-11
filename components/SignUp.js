@@ -103,19 +103,19 @@ export default class SignUp extends Component {
 
        
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#ADC2A9'}}/>
+        <View style={{flex: 1, height: 1, backgroundColor: '#95a5a6', opacity:0.3}}/>
         <View>
-            <Text style={{width: 50, textAlign: 'center'}}>or</Text>
+          <Text style={{width: 50, textAlign: 'center'}}>or</Text>
         </View>
-        <View style={{flex: 1, height: 2, backgroundColor: '#ADC2A9'}} />
+        <View style={{flex: 1, height: 1, backgroundColor: '#95a5a6', opacity:0.3}} />
         </View>
-      <GoogleSigninButton
-        style={styles.gbtn}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Dark}
-        onPress={this.onGoogleButtonPress}
-       
-     />
+        <TouchableOpacity style={styles.btnGoogle}   
+              onPress={this.onGoogleButtonPress}> 
+            <Image style={styles.imgGoogle}
+                source={require('../assets/google-logo.png')}
+            />
+            <Text style={styles.txt2}>Sign in with Google</Text>
+         </TouchableOpacity>
        
       </View>
     );
@@ -129,6 +129,23 @@ const styles=StyleSheet.create({
       color: '#FEFEFE',
       margin:7,
   },
+  btnGoogle:{
+    marginTop:15,
+    width: 350,
+    height: 50,
+    backgroundColor:'white',
+    alignSelf:'center',
+    borderRadius:30,
+    borderColor:'#646464',
+    borderWidth:1
+},
+  imgGoogle: {
+    marginTop:10,
+    width: 25,
+    height: 25,
+    alignSelf:'center',
+    marginLeft:-210,
+},
   linkedInImg: {
       marginTop: 15,
       width: 100,
@@ -136,6 +153,13 @@ const styles=StyleSheet.create({
       marginLeft: 10,
       marginBottom:40
   },
+  txt2:{
+    fontSize:20,
+    alignSelf:'center',
+   
+    marginTop:-27,
+    fontWeight:'bold'
+},
   txtJoinin:{
     fontWeight:'bold',
       fontSize:30, 
@@ -184,11 +208,7 @@ const styles=StyleSheet.create({
       borderColor:'#646464',
       borderWidth:1
   },
-  txt2: {
-      fontSize: 23,
-      alignSelf: 'center',
-      marginTop: -31   
-  },
+ 
   btnSignIN: {
       marginTop: 10,
       marginLeft: 5,

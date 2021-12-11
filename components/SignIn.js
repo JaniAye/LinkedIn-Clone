@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text,StyleSheet } from 'react-native';
+import { View, Text,StyleSheet, Image ,TouchableOpacity } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
@@ -55,9 +55,20 @@ export default class SignIn extends Component {
   
   render() {
     return (
-      <View style={styles.constainer}>
-      <Text> Sign In </Text>
-      <TextInput  style={styles.input}
+      <View style={styles.container}>
+       <Image
+           style={styles.imgLinkedIn}
+           source={require('../assets/Linkedin-Logo.png')}
+      />
+       <TouchableOpacity onPress={() => navigate('Signup', { name: 'Signup' })}>
+          <Text style={styles.txtJoin}>
+             Join now
+          </Text>
+        </TouchableOpacity>
+            <Text style={styles.txtSignIN}>
+                Sign in
+            </Text>
+      <TextInput  style={styles.txtinput1}
           label="Enter your email :"
           value={this.state.email}
           onChangeText={text => this.setState(
@@ -65,44 +76,130 @@ export default class SignIn extends Component {
           )}
       />
 
-      <TextInput style={styles.input}
+      <TextInput style={styles.txtinput1}
           label="Enter your password :"
           value={this.state.password}
           onChangeText={text => this.setState(
               {password:text}
           )}
       />
-       <Button style={styles.btn} mode="contained" onPress={this.userLogin}>
-         Login
+      <TouchableOpacity style={styles.btn3}>
+                    <Text style={styles.txt4}>
+                        Forgot password?
+                    </Text>
+                </TouchableOpacity>
+       <Button style={styles.btnContinue} mode="contained" onPress={this.userLogin}>
+          <Text style={styles.txt1}>
+              Continue   
+         </Text>
       </Button>
+       <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 1, backgroundColor: '#95a5a6', opacity:0.3}}/>
+        <View>
+          <Text style={{width: 50, textAlign: 'center'}}>or</Text>
+        </View>
+        <View style={{flex: 1, height: 1, backgroundColor: '#95a5a6', opacity:0.3}} />
+        </View>
 
-      <GoogleSigninButton
-        style={{ width: 192, height: 48 }}
+      {/* <GoogleSigninButton
+        style={styles.btn2}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Dark}
         onPress={this.onGoogleButtonPress}
-     />
+     /> */}
+
+          <TouchableOpacity style={styles.btnGoogle}   
+              onPress={this.onGoogleButtonPress}> 
+            <Image style={styles.imgGoogle}
+                source={require('../assets/google-logo.png')}
+            />
+            <Text style={styles.txt2}>Sign in with Google</Text>
+         </TouchableOpacity>
+     
 
       </View>
     );
   }
 }
-const styles=StyleSheet.create({
-  btn: {
-      marginTop: 20,
-      width: 300
-  },
-  constainer: {
+const styles = StyleSheet.create({
+  container: {
       flex: 1,
-      alignItems: 'center'
+      backgroundColor: '#FEFEFE',
+      color: '#FEFEFE',
+      margin: 10,
   },
-  input: {
-      width: 300,
-      marginTop: 15,
-
+  txtinput1: {
+    marginTop: 10,
+},
+imgLinkedIn: {
+      marginTop: 10,
+      width: 100,
+      height: 25,
+      marginLeft: 10
   },
-  x: {
-      marginBottom: 150,
-      marginTop: 50
-  }
+  imgGoogle: {
+    marginTop:10,
+    width: 25,
+    height: 25,
+    alignSelf:'center',
+    marginLeft:-210,
+},
+ 
+  txt1:{
+      fontSize:20,
+      color:'white'
+  },
+  txt2:{
+      fontSize:20,
+      alignSelf:'center',
+     
+      marginTop:-27,
+      fontWeight:'bold'
+  },
+  txtJoin:{
+      fontSize:16,
+      fontWeight:'bold',
+      alignSelf:'center',
+      color:'#0A66C2',
+      marginTop:-20,
+      marginLeft:290
+  },
+  txt4:{
+      fontSize:16,
+      alignSelf:'center',
+      color:'#0A66C2'
+  },
+  txtSignIN:{
+   
+      fontSize:35, 
+      color:'#202124',
+      marginTop:20,
+      marginLeft:5,
+      marginBottom:20
+  },
+  btnContinue:{
+      marginTop:15,
+      backgroundColor:'#0A66C2',
+      width: 350,
+      height: 50,
+      alignSelf:'center',
+      borderRadius:30,
+      marginBottom:15
+    },
+    btnGoogle:{
+      marginTop:15,
+      width: 350,
+      height: 50,
+      backgroundColor:'white',
+      alignSelf:'center',
+      borderRadius:30,
+      borderColor:'#646464',
+      borderWidth:1
+  },
+  btn3:{
+      marginTop:15,
+      width:150,
+      height:25,
+  },
+   
 })
