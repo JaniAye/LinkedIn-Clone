@@ -18,10 +18,10 @@ componentDidMount(){
   render() {
     return (
       //<SignIn/>
-      //<SignUp/>
+      <SignUp/>
       //<Home/>
-      //<Dashboard/>
-      <Imgupload/>
+     // <Dashboard/>
+      //<Imgupload/>
     );
   }
 }
